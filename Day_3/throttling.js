@@ -1,28 +1,27 @@
-// used for performance optimization and limiting the rate of api calls or function execution.
-
 const expensive = () => {
-  console.log("throttled");
+  console.count("throttled");
 };
 
 const normal = () => {
-  console.log("normal");
+  console.count("normal");
 };
-function throttle(func, limit) {
+
+const throttle = (fn, limit) => {
   let flag = true;
   return function () {
     let context = this;
     let args = arguments;
     if (flag) {
-      func(context, args);
+      fn.apply(this, arguments);
       flag = false;
       setTimeout(() => {
         flag = true;
       }, limit);
     }
   };
-}
+};
 
-const betterExperience = throttle(expensive, 1000);
+const betterExpensive = throttle(expensive, 2000);
 
-window.addEventListener("resize", betterExperience);
+window.addEventListener("resize", betterExpensive);
 window.addEventListener("resize", normal);
