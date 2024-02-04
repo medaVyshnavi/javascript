@@ -14,23 +14,23 @@
 //   .then((res) => console.log(res))
 //   .catch((err) => console.log(err));
 
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("1");
-  }, 1000);
-});
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("1");
+//   }, 1000);
+// });
 
-function getData() {
-  p.then((res) => console.log(res));
-  console.log("2");
-}
+// function getData() {
+//   p.then((res) => console.log(res));
+//   console.log("2");
+// }
 
-getData();
+// getData();
 
-async function handlePromise() {
-  const res = await p;
-  console.log("3");
-  console.log(res);
-}
+// async function handlePromise() {
+//   const res = await p;
+//   console.log("3");
+//   console.log(res);
+// }
 
-handlePromise();
+// handlePromise();
